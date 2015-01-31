@@ -1,0 +1,20 @@
+@extends('pages.layouts.scaffold')
+
+@section('main')
+    <div class="col-lg-8">
+        <div class="portlet portlet-blue">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Add New {{Model}}</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-body">
+                {!! BootstrapForm::openHorizontal(['model'=>isset(${{model}}) ? ${{model}} : new {{model}}(),'update'=>'{{models}}.update','store'=>'{{models}}.store']) !!}
+                {{formElements}}
+                {!! BootstrapForm::submit('Save') !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+@stop

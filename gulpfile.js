@@ -1,0 +1,47 @@
+var elixir = require('laravel-elixir');
+
+elixir(function(mix) {
+    mix.styles([
+            "css/googlefont.css",
+            "css/plugins/bootstrap/css/bootstrap.min.css",
+            'css/ubuntufont',
+            'css/opensans',
+            "icons/font-awesome/css/font-awesome.min.css",
+            "css/plugins/messenger/messenger.css",
+            "css/plugins/messenger/messenger-theme-flat.css",
+            "css/plugins/daterangepicker/daterangepicker-bs3.css",
+            "css/plugins/morris/morris.css",
+            "css/plugins/jvectormap/jquery-jvectormap-1.2.2.css",
+            "css/plugins/datatables/datatables.css",
+            "css/style.css",
+            "css/plugins.css",
+            "css/demo.css"
+        ])
+        .scripts([
+            "js/jquery.min.js",
+            "js/plugins/bootstrap/bootstrap.min.js",
+            "js/plugins/slimscroll/jquery.slimscroll.min.js",
+            "js/plugins/popupoverlay/jquery.popupoverlay.js",
+            "js/plugins/popupoverlay/defaults.js",
+            "js/plugins/popupoverlay/logout.js",
+            "js/plugins/hisrc/hisrc.js",
+            "js/plugins/messenger/messenger.min.js",
+            "js/plugins/messenger/messenger-theme-flat.js",
+            "js/plugins/daterangepicker/moment.js",
+            "js/plugins/daterangepicker/daterangepicker.js",
+            "js/plugins/morris/raphael-2.1.0.min.js",
+            "js/plugins/morris/morris.js",
+            "js/plugins/flot/jquery.flot.js",
+            "js/plugins/flot/jquery.flot.resize.js",
+            "js/plugins/sparkline/jquery.sparkline.min.js",
+            "js/plugins/moment/moment.min.js",
+            "js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js",
+            "js/plugins/jvectormap/maps/jquery-jvectormap-world-mill-en.js",
+            "js/demo/map-demo-data.js",
+            "js/plugins/easypiechart/jquery.easypiechart.min.js",
+            "js/plugins/datatables/jquery.dataTables.js",
+            "js/plugins/datatables/datatables-bs3.js",
+            "js/flex.js",
+            "js/demo/dashboard-demo.js"
+        ]);
+});

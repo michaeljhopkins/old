@@ -1,0 +1,111 @@
+<?php namespace {{appName}}Http\Controllers;
+
+use {{appName}}Models\{{Model}};
+use Input;
+use Redirect;
+use View;
+
+class {{className}} extends Controller {
+
+	/**
+	 * {{Model}} Repository
+	 *
+	 * @var {{Model}}
+	 */
+	protected ${{model}};
+
+	public function __construct({{Model}} ${{model}})
+	{
+		$this->{{model}} = ${{model}};
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$view['{{models}}'] = $this->{{model}}->all();
+
+		return View::make('pages.{{models}}.index', $view);
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return View::make('pages.{{models}}.create');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+        $this->{{model}}->create(Input::all());
+        return Redirect::back()->with('message','{{Model}} created successfully!');
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$view['{{model}}'] = $this->{{model}}->findOrFail($id);
+
+		return View::make('pages.{{models}}.show', $view);
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		${{model}} = $this->{{model}}->find($id);
+
+		if (is_null(${{model}}))
+		{
+			return Redirect::route('{{models}}.index');
+		}
+
+		return View::make('pages.{{models}}.edit', compact('{{model}}'));
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+	    $this->{{model}}->update($id,Input::all());
+        return Redirect::route('{{models}}.index')->with('message','{{Model}} updated successfully!');
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$this->{{model}}->find($id)->delete();
+
+		return Redirect::route('{{models}}.index');
+	}
+
+}

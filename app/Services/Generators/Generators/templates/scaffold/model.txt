@@ -1,0 +1,13 @@
+<?php namespace {{appName}}Models;
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Watson\Validating\ValidatingTrait;
+
+class {{className}} extends BaseModel {
+    use ValidatingTrait, SoftDeletes;
+    protected $guarded = ['id'];
+    protected $fillable = [];
+    protected $dates = ['deleted_at'];
+    protected $softDelete = true;
+	protected $rules = [{{rules}}];
+}

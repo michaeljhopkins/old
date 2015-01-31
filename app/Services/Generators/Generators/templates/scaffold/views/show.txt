@@ -1,0 +1,20 @@
+@extends('layouts.scaffold')
+
+@section('main')
+    <h1gulp>Show {{Model}}</h1>
+    <a href="/clients" class="btn btn-warning">Return to All {{models}}</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {{headings}}
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                {{fields}}
+            </tr>
+        </tbody>
+    </table>
+
+@stop

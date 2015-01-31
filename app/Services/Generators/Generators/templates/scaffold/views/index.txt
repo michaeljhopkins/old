@@ -1,0 +1,53 @@
+@extends('pages.layouts.scaffold')
+
+@section('main')
+    <div class="col-lg-7">
+        <div class="portlet portlet-red">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>All {{Models}}</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-responsive">
+                    @if (${{models}}->count())
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    {{headings}}
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(${{models}} as ${{model}})
+                                    <tr>
+                                        {{fields}}
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        There are no {{models}}
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="portlet portlet-red">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Add Admin</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-body">
+                {!! BootstrapForm::openHorizontal(['model'=>isset(${{model}}) ? ${{model}} : new \\{{appName}}\Models\{{Model}}(),'update'=>'{{models}}.update','store'=>'{{models}}.store']) !!}
+                {{formElements}}
+                {!! BootstrapForm::submit('Save') !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+@stop
